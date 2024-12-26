@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <div align="center">
+        <form id="form">
+            <div>
+                <label>firstname</label>
+                <input type="text" name="fname" id="fname">
+                <span id="err"></span>
+                <br/>
+                <br/>
+            </div>
+            <div>
+                <label>lastname</label>
+                <input type="text" name="lname" id="lname">
+                <br/>
+                <br/>
+            </div>
+            <div>
+                <label>email</label>
+                <input type="email" name="email" id="email">
+                <br/>
+                <br/>
+            </div>
+            <div>
+                <label>pass</label>
+                <input type="password" name="password" id="password">
+                <br/>
+                <br/>
+            </div>
+            <div>
+                <label>gender</label>
+                <input type="radio" name="female" id="gender">female
+                <input type="radio" name="male" id="gender">male
+                <input type="radio" name="other" id="gender">other
+                <br/>
+                <br/>
+            </div>
+            <div>
+                <label>hobbies</label>
+                <select name="hobbies" id="hobbies">
+                <option hidden>select hobbies</option> 
+                <option value="reading">reading</option>
+                <option value="dancing">dancing</option> 
+                <option value="music">music</option> 
+                </select>    
+                <br/>
+                <br/>
+            </div>
+            <div>
+                <label>date</label>
+                <input type="date" name="dob" id="dob">
+                <br/>
+                <br/>
+            </div>
+            <div>
+               <button name="submit">register form</button>
+                <br/>
+                <br/>
+            </div>
+        </form>
+    </div>
+    
+</body>
+<script src="validation.js"></script>
+</html>
