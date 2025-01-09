@@ -1,15 +1,4 @@
 
-// function getOperation() {
-//     const operation = prompt("Choose an operation: +, -, *, /");
-//     return operation;
-//   }
- 
-//   function getNumbers() {
-//     const num1 = parseFloat(prompt("Enter first number:"));
-//     const num2 = parseFloat(prompt("Enter second number:"));
-//     return { num1, num2 };
-//   }
- 
   function calculate(operation, num1, num2) {
     switch (operation) {
       case '+':
@@ -36,3 +25,6 @@
   }
   
   runCalculator();
+
+
+ 
