@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c592da;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        #countdown {
+            background-color:purple;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 36px;
+            display: flex;
+            gap: 10px;
+        }
+        h1{
+            background-color: palevioletred;
+            color:white;
+            border-radius: 10px;
+        }
+       
+        .label {
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .finished {
+            font-size: 24px;
+            color: #ff4747;
+        }
+    </style>
+</head>
+<body>
+   
+    <div align="center">
+        <div>
+            <h1>TIMER</h1>
+        </div>
+        <div id="countdown">
+            <div  id="hours"></div>
+            <div  id="minutes"></div>
+            <div  id="seconds"></div>
+        </div>
+    </div>
+    
+
+    <script>
+        let targetDate = new Date("January 21, 2025 00:00:00").getTime();
+        let interval = setInterval(function() {
+            let now = new Date().getTime();
+            let distance = targetDate - now;
+
+            let hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+            let minutes = Math.floor((distance / (1000 * 60)) % 60);
+            let seconds = Math.floor((distance / 1000) % 60);
+
+            document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "Countdown finished!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
