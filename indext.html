@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purse Store</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-color: beige;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .products, .cart { 
+            width: 20px; 
+        }
+        .product-card, .cart-item { 
+            border: 1px solid #ddd; 
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            background-color: aquamarine;
+            
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        h1{
+            background-color: palevioletred;
+            margin: auto;
+            color: #ddd;
+            padding: 20px;
+        }
+        h2{
+            margin-bottom: 10px;
+            background-color: rgb(62, 20, 227);
+            color:white;
+        }
+        button{
+            font-size: large;
+            color: rgb(122, 7, 230);
+            border-radius: 1px;
+            background-color: rgb(235, 129, 245);
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        input{
+            margin: 5px;
+            padding: 5px;
+        }
+        .product-card img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Purse Store</h1>
+
+        <h2>Add Purses</h2>
+        <input type="text" id="productName" placeholder="Product Name"><br>
+        <input type="number" id="productPrice" placeholder="Price"><br>
+        <input type="text" id="productImage" placeholder="Image URL"><br>
+        
+        <button onclick="addProduct()">Add Purse</button>
+
+        <h2>Stored Purses</h2>
+        <div id="productList" class="grid"></div>
+        
+        <h2>Show Cart Purses here</h2>
+        <div id="cartList"></div>
+    </center>
+    
+    <script src="addtocart.js"></script>
+</body>
+</html>
