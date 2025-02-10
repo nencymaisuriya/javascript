@@ -1,0 +1,82 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: lightblue;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 50px;
+    padding: 20px;
+    background: lemonchiffon;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+    font-size: 15px;
+}
+
+.search-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-btn i {
+    font-size: 18px;
+}
+
+.stats {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stat-box {
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cases {
+    background-color:#007bff;
+    color: white;
+}
+
+.recovered {
+    background-color:#007bff;
+    color: white;
+}
+
+.deaths {
+    background-color: #007bff;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}

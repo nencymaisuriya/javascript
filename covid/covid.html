@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h2>COVID-19</h2>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Enter State Name">
+                <button id="search-btn" class="search-btn"><i class="ri-search-line"></i> Search</button>
+            </div>
+            <div id="covid-stats" class="hidden">
+                <h3 id="state-name"></h3>
+                <div class="stats">
+                    <div class="stat-box cases">
+                        <h4>Total Cases</h4>
+                        <p id="total-cases">-</p>
+                    </div>
+                    <div class="stat-box recovered">
+                        <h4>Total Recovered</h4>
+                        <p id="total-recovered">-</p>
+                    </div>
+                    <div class="stat-box deaths">
+                        <h4>Total Deaths</h4>
+                        <p id="total-deaths">-</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
