@@ -1,57 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const searchIcon = document.querySelector(".ri-search-line");
-    const inputField = document.getElementById("weather-city");
-    const weatherResult = document.getElementById("weather-result");
+document.addEventListener("DOMContentLoaded", () => {
+    const searchBtn = document.getElementById("search-btn");
+    const searchInput = document.getElementById("search-input");
+    const covidStats = document.getElementById("covid-stats");
+    const stateNameElement = document.getElementById("state-name");
+    const totalCases = document.getElementById("total-cases");
+    const totalRecovered = document.getElementById("total-recovered");
+    const totalDeaths = document.getElementById("total-deaths");
 
-    searchIcon.addEventListener("click", fetchWeather);
-    inputField.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            fetchWeather();
+    searchBtn.addEventListener("click", () => {
+        const queryState = searchInput.value.trim();
+        if (queryState) {
+            fetchCovidData(queryState);
+        } else {
+            alert("Please enter a state name.");
         }
     });
 
-    function fetchWeather() {
-        const apiKey = "2207eaaf96a5ec1ab27680316e7632a5";
-        const city = inputField.value.trim();
+    function fetchCovidData(queryState) {
+        const url = "https://api.rootnet.in/covid19-in/stats/latest";
 
-        if (city === "") {
-            alert("Please enter a city name.");
-            return;
-        }
-
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-        fetch(apiUrl)
+        fetch(url)
             .then(response => response.json())
             .then(data => {
-                if (data.cod === "404") {
-                    alert("City not found! Please enter a valid city name.");
-                    return;
+                const regionalData = data.data.regional;
+                const result = regionalData.find(entry => entry.loc.toLowerCase() === queryState.toLowerCase());
+
+                if (result) {
+                    stateNameElement.textContent = `State: ${result.loc}`;
+                    totalCases.textContent = result.totalConfirmed;
+                    totalRecovered.textContent = result.discharged;
+                    totalDeaths.textContent = result.deaths;
+
+                    covidStats.classList.remove("hidden");
+                } else {
+                    alert("State not found. Please check the spelling.");
                 }
-                displayWeather(data);
             })
             .catch(error => {
-                console.error("Error fetching weather data:", error);
-                alert("Something went wrong. Please try again.");
+                console.error("Error fetching data:", error);
+                alert("Failed to fetch data. Please try again later.");
             });
-    }
-
-    function displayWeather(data) {
-        const { name } = data;
-        const { temp, humidity } = data.main;
-        const { speed } = data.wind;
-       
-        const weatherHtml = `
-            <div class="weather-card">
-                <h3>${name}</h3>
-                <div class="temperature">${temp}°C</div>
-                <p>Humidity: ${humidity}%</p>
-                <p>Wind Speed: ${speed} m/s</p>
-               
-            </div>
-        `;
-
-        weatherResult.innerHTML = weatherHtml;
-        weatherResult.style.display = "block";
     }
 });
